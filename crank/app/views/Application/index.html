@@ -1,4 +1,10 @@
+#{extends 'main.html' /}
 #{set title:'Home' /}
+
+<div class="content">
+<div class="search-bar"></div>
+<div class="recent-bar">Recently Added:</div>
+<div class="company-display">
 %{
 	for(company in companies) {
 }%
@@ -15,3 +21,5 @@
 %{
 	}
 }%
+</div>
+</div>

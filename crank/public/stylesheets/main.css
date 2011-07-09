@@ -1,0 +1,17 @@
+
+html {
+	font-family: 'palatino'
+}
+
+.content {
+	margin-left:auto;
+	margin-right:auto;
+	width: 800px;
+}
+
+.recent-bar {
+	background-color: #009999;
+	color: #003333;
+	font-size: 1.5em;
+	font-weight: bold;
+}
