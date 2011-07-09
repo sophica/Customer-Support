@@ -17,3 +17,4 @@
 crank/.classpath
 crank/eclipse/
 crank/conf/application.conf
+crank/tmp
