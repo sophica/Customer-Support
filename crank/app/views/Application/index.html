@@ -1,3 +1,17 @@
 #{set title:'Home' /}
-hihihihihi
-${companies.first().name}
+%{
+	for(company in companies) {
+}%
+<table>
+<tr>
+	<td>
+		${company.name}
+	</td>
+	<td>
+		${company.satisfaction}
+	</td>
+</tr>
+</td>
+%{
+	}
+}%
