@@ -1,3 +1,23 @@
+#{extends 'main.html' /}
 #{set title:'Home' /}
 hihihihihi
 ${companies.first().name}
+
+<script> 
+$(document).ready(function() {
+	  $('#example-1').ratings(10,0).bind('ratingchanged', function(event, data) {
+	    $('#example-rating-1').text(data.rating);
+	  });
+	  
+	  $('#example-2').ratings(10,2).bind('ratingchanged', function(event, data) {
+	    $('#example-rating-2').text(data.rating);
+	  });
+	});
+
+</script>
+
+ 	<div id="example-1"></div> <br /> 
+    Your Rating: <span id="example-rating-1">not set</span> 
+    <br /><br /> 
+    <div id="example-2"></div> <br /> 
+    Your Rating: <span id="example-rating-2">not set</span> 
