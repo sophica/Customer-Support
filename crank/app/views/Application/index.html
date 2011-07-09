@@ -1,5 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<<<<<<< HEAD
 hihihihihi
 ${companies.first().name}
 
@@ -21,3 +22,28 @@ $(document).ready(function() {
     <br /><br /> 
     <div id="example-2"></div> <br /> 
     Your Rating: <span id="example-rating-2">not set</span> 
+
+
+<div class="content">
+<div class="search-bar"></div>
+<div class="recent-bar">Recently Added:</div>
+<div class="company-display">
+%{
+	for(company in companies) {
+}%
+<table>
+<tr>
+	<td>
+		${company.name}
+	</td>
+	<td>
+		${company.satisfaction}
+	</td>
+</tr>
+</td>
+%{
+	}
+}%
+</div>
+</div>
+
