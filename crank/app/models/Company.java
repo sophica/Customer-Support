@@ -17,4 +17,8 @@ public class Company extends Model{
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public Set<Tag> tags;
+	
+	public Company(String n) {
+		name = n;
+	}
 }
