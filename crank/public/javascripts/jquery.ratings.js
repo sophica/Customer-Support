@@ -27,7 +27,7 @@ jQuery.fn.ratings = function(stars, initialRating) {
     container.css('overflow', 'auto');
     
     //create each star
-    for(var starIdx = 0; starIdx < stars; starIdx++) {
+    for(var starIdx = 0; starIdx < 10; starIdx++) {
       
       //Create a div to hold the star.
       var starElement = document.createElement('div');
@@ -45,6 +45,16 @@ jQuery.fn.ratings = function(stars, initialRating) {
       if(starIdx < initialRating) {
         star.addClass('jquery-ratings-full');
       }
+//      if(starIdx < 3) {
+//        star.addClass('jquery-ratings-red');
+//      }
+//      else if(starIdx < 7) {
+//        star.addClass('jquery-ratings-orange');
+//      }
+//      else {
+//          star.addClass('jquery-ratings-green');
+//        }
+      
       
       //add the star to the container
       container.append(star);
@@ -57,27 +67,66 @@ jQuery.fn.ratings = function(stars, initialRating) {
         containerElement.rating = this.rating;
       });
       
+      
+      
       star.mouseenter(function() {
-        //Highlight selected stars.
-        for(var index = 0; index < this.rating; index++) {
-          starsCollection[index].addClass('jquery-ratings-full');
+    	  var color;
+    	  //Highlight selected stars.
+    	  if (this.rating < 3) 
+    	  { color="red";}
+    	  else if (this.rating < 7) 
+    	  { color="orange";}
+    	  else 
+    	  { color="green";}
+    	  
+    	  
+        for(var index = 0; index < this.rating; index++) {           
+        	addColor(index,color);	
         }
         //Unhighlight unselected stars.
         for(var index = this.rating; index < stars; index++) {
-          starsCollection[index].removeClass('jquery-ratings-full');
+        	removeColor(index,color);
         }
       });
       
+      
       container.mouseleave(function() {
-        //Highlight selected stars.
+    	  var color;
+    	  if (containerElement.rating < 3) 
+    	  { color="red";}
+    	  else if (containerElement.rating < 7) 
+    	  { color="orange";}
+    	  else 
+    	  { color="green";}
+    	  
+    	//Highlight selected stars.
         for(var index = 0; index < containerElement.rating; index++) {
-          starsCollection[index].addClass('jquery-ratings-full');
+        	addColor(index,color);
         }
         //Unhighlight unselected stars.
         for(var index = containerElement.rating; index < stars ; index++) {
-          starsCollection[index].removeClass('jquery-ratings-full');
+        	removeColor(index,color);
         }
       });
+      
+      var addColor = function(index,color){
+    	  if(color=="red") 
+      	  {starsCollection[index].addClass('jquery-ratings-red');}
+          else if(color=="orange") 
+          {starsCollection[index].addClass('jquery-ratings-orange');}
+          else 
+          {starsCollection[index].addClass('jquery-ratings-green');}
+      }
+      var removeColor = function(index,color){
+    	  if(color=="red") 
+      	  {starsCollection[index].removeClass('jquery-ratings-red');}
+          else if(color=="orange") 
+          {starsCollection[index].removeClass('jquery-ratings-orange');}
+          else 
+          {starsCollection[index].removeClass('jquery-ratings-green');}
+      }
+      
+      
     }
   });
 };
