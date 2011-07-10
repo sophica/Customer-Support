@@ -19,3 +19,4 @@ crank/eclipse/
 crank/conf/application.conf
 crank/tmp
 crank/.settings/org.eclipse.core.resources.prefs
+crank/data
