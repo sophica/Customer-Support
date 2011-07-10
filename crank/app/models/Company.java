@@ -32,5 +32,6 @@ public class Company extends Model{
 
 	public void addRating(int r) {
 	  rating = ((rating*numRatings)+r)/++numRatings;
+	  lastUpdated = new Date();
 	}
 }
