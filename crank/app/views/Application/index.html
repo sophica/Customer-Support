@@ -7,9 +7,27 @@
 <div class="company-display">
 %{
 	for(company in companies) {
+	System.out.println(company.hasImage);
 }%
 <table>
 <tr>
+	<td>
+%{
+	if (!company.hasImage) {
+}%
+#{form @Application.uploadPicture(), enctype:'multipart/form-data'}
+	<input type="hidden" name="companyId" value="${company.id}">
+    <input type="file" name="image" />
+    <input type="submit" name="submit" value="Save" />
+#{/form}
+%{
+	} else {
+}%
+	<img class="logo" src="@{Application.getPicture(company.id)}" />
+%{
+	}
+}%
+	</td>
 	<td>
 		${company.name}
 	</td>
@@ -23,3 +41,4 @@
 }%
 </div>
 </div>
+
