@@ -7,7 +7,7 @@ public class Rating extends Controller {
   
   public static void saveRating(long cId, int rating) {
     Company company = Company.findById(cId);
-    company.rating = rating;
+    company.addRating(rating);
     company.save();
     renderTemplate("Application/index.html");
   }

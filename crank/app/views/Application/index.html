@@ -40,17 +40,19 @@
 </tr>
 </td>
 <script type="text/javascript">
-	   	$('#example-${company.id}').ratings(10,${company.rating}).bind('ratingchanged', function(event, data) {
-	    $('#example-rating-${company.id}').text(data.rating);
+    var currRating = Math.floor(${company.rating}/10)
+	$('#example-${company.id}').ratings(10, currRating).bind('ratingchanged', function(event, data) {
+		$('#example-rating-${company.id}').text(data.rating);
 	            
-	    var cId=${company.id};
-        $.ajax({
-        	type: "POST",
-        	url:"/saveRating?cId="+cId+"&rating="+data.rating,
-        	success: function(data) {
-        	}
+		var cId=${company.id};
+		var newRating = data.rating*10;
+	    $.ajax({
+	        type: "POST",
+	        url:"/saveRating?cId="+cId+"&rating="+newRating,
+	        success: function(data) {
+            }
         })
-	  });
+	});
 </script>
 %{
 	}

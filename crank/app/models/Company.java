@@ -16,17 +16,21 @@ public class Company extends Model{
 	public Blob    image;
   public boolean hasImage;
 	
-	public int     rating;
+	public double  rating;
 	public int     numRatings;  
 	public Date    lastUpdated;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public Set<Tag> tags;
-	
+
 	public Company(String n) {
 		name = n;
 		hasImage = false;
 		numRatings = 0;
 		lastUpdated = new Date();
+	}
+
+	public void addRating(int r) {
+	  rating = ((rating*numRatings)+r)/++numRatings;
 	}
 }
