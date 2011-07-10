@@ -6,6 +6,7 @@
 GET     /                                       Application.index
 
 POST	/saveRating								Rating.saveRating
+POST    /addCompany                             CompanyManager.addCompany
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
