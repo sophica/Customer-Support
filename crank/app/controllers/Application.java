@@ -27,6 +27,13 @@ public class Application extends Controller {
       renderTemplate("Application/index.html");
     }
     
+    public static void saveRating(long cId, int rating) {
+      Company company = Company.findById(cId);
+      company.satisfaction = rating;
+      company.save();
+      renderTemplate("Application/index.html");
+    }
+    
     public static void getPicture(long companyId) {
       Company company = Company.findById(companyId);
       renderBinary(company.image.get());

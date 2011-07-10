@@ -4,11 +4,12 @@
 <div class="content">
 <div class="search-bar"></div>
 <div class="recent-bar">Recently Added:</div>
+
 <div class="company-display">
 %{
 	for(company in companies) {
-	System.out.println(company.hasImage);
 }%
+
 <table>
 <tr>
 	<td>
@@ -38,9 +39,18 @@
 	</td>
 </tr>
 </td>
-<script>
-	   	$('#example-${company.id}').ratings(10,0).bind('ratingchanged', function(event, data) {
+<script type="text/javascript">
+	   	$('#example-${company.id}').ratings(10,${company.satisfaction}).bind('ratingchanged', function(event, data) {
 	    $('#example-rating-${company.id}').text(data.rating);
+	            
+	    var cId=${company.id};
+        $.ajax({
+        	type: "POST",
+        	blah: "hiblah",
+        	url:"/saveRating?cId="+cId+"&rating="+data.rating,
+        	success: function(data) {
+        	}
+        })
 	  });
 </script>
 %{
