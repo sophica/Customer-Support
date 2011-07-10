@@ -12,11 +12,13 @@ import play.db.jpa.Model;
 
 @Entity
 public class Company extends Model{
-	public String 	name;
-	public Blob   image;
-	public int 		satisfaction;
-	public Date		lastUpdated;
-	public boolean    hasImage;
+	public String  name;
+	public Blob    image;
+  public boolean hasImage;
+	
+	public int     rating;
+	public int     numRatings;  
+	public Date    lastUpdated;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public Set<Tag> tags;
@@ -24,5 +26,7 @@ public class Company extends Model{
 	public Company(String n) {
 		name = n;
 		hasImage = false;
+		numRatings = 0;
+		lastUpdated = new Date();
 	}
 }

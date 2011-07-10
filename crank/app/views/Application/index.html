@@ -40,7 +40,7 @@
 </tr>
 </td>
 <script type="text/javascript">
-	   	$('#example-${company.id}').ratings(10,${company.satisfaction}).bind('ratingchanged', function(event, data) {
+	   	$('#example-${company.id}').ratings(10,${company.rating}).bind('ratingchanged', function(event, data) {
 	    $('#example-rating-${company.id}').text(data.rating);
 	            
 	    var cId=${company.id};
