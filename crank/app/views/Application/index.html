@@ -4,18 +4,19 @@
 <div class="content">
 <div class="search-bar"></div>
 <div class="recent-bar">Recently Added:</div>
+
 <div class="company-display">
 %{
 	for(company in companies) {
-	System.out.println(company.hasImage);
 }%
+
 <table>
 <tr>
 	<td>
 %{
 	if (!company.hasImage) {
 }%
-#{form @Application.uploadPicture(), enctype:'multipart/form-data'}
+#{form @Logo.uploadPicture(), enctype:'multipart/form-data'}
 	<input type="hidden" name="companyId" value="${company.id}">
     <input type="file" name="image" />
     <input type="submit" name="submit" value="Save" />
@@ -23,7 +24,7 @@
 %{
 	} else {
 }%
-	<img class="logo" src="@{Application.getPicture(company.id)}" />
+	<img class="logo" src="@{Logo.getPicture(company.id)}" />
 %{
 	}
 }%
@@ -38,9 +39,17 @@
 	</td>
 </tr>
 </td>
-<script>
-	   	$('#example-${company.id}').ratings(10,0).bind('ratingchanged', function(event, data) {
+<script type="text/javascript">
+	   	$('#example-${company.id}').ratings(10,${company.rating}).bind('ratingchanged', function(event, data) {
 	    $('#example-rating-${company.id}').text(data.rating);
+	            
+	    var cId=${company.id};
+        $.ajax({
+        	type: "POST",
+        	url:"/saveRating?cId="+cId+"&rating="+data.rating,
+        	success: function(data) {
+        	}
+        })
 	  });
 </script>
 %{
