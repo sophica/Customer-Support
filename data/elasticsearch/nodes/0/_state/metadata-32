@@ -1,0 +1,56 @@
+{
+  "state" : {
+    "version" : 32,
+    "meta-data" : {
+      "templates" : {
+      },
+      "indices" : {
+        "dell" : {
+          "state" : "open",
+          "settings" : {
+            "index.number_of_shards" : "5",
+            "index.number_of_replicas" : "1"
+          },
+          "mappings" : [ ]
+        },
+        "models_company" : {
+          "state" : "open",
+          "settings" : {
+            "index.number_of_shards" : "5",
+            "index.number_of_replicas" : "1"
+          },
+          "mappings" : [ {
+            "models_company" : {
+              "properties" : {
+                "tags" : {
+                  "type" : "string"
+                },
+                "id" : {
+                  "type" : "long"
+                },
+                "hasImage" : {
+                  "type" : "boolean"
+                },
+                "numRatings" : {
+                  "type" : "long"
+                },
+                "name" : {
+                  "type" : "string"
+                },
+                "lastUpdated" : {
+                  "type" : "string"
+                },
+                "image" : {
+                  "type" : "string"
+                },
+                "rating" : {
+                  "type" : "long"
+                }
+              }
+            }
+          } ]
+        }
+      }
+    }
+  }
+}

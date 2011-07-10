@@ -1,4 +1,4 @@
 # Application dependencies
 
 require:
-    - play
+    - play -> elasticsearch 0.0.6

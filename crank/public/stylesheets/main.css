@@ -204,3 +204,21 @@ table {margin: .5em auto 1.5em auto; width: 98%;}
 	tfoot th {}
 	tfoot td {}
 	
+	
+article.hentry{
+border: 1px inset #615d61;
+border-offset: 10px; /*Delete if you don't want an offset*/
+
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+
+-webkit-box-shadow: 2px 5px 20px 2px #9e2f2f;
+-moz-box-shadow: 2px 5px 20px 2px #9e2f2f;
+box-shadow: 2px 5px 20px 2px #9e2f2f;
+
+opacity:0.8;
+background-color:#FFFFF;     
+}
+	
+	

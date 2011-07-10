@@ -1,0 +1,46 @@
+{
+  "state" : {
+    "version" : 32,
+    "shards" : [ {
+      "index" : "dell",
+      "id" : 2,
+      "version" : 32
+    }, {
+      "index" : "dell",
+      "id" : 1,
+      "version" : 32
+    }, {
+      "index" : "dell",
+      "id" : 4,
+      "version" : 32
+    }, {
+      "index" : "dell",
+      "id" : 3,
+      "version" : 32
+    }, {
+      "index" : "models_company",
+      "id" : 0,
+      "version" : 32
+    }, {
+      "index" : "models_company",
+      "id" : 1,
+      "version" : 32
+    }, {
+      "index" : "models_company",
+      "id" : 2,
+      "version" : 32
+    }, {
+      "index" : "models_company",
+      "id" : 3,
+      "version" : 32
+    }, {
+      "index" : "models_company",
+      "id" : 4,
+      "version" : 32
+    }, {
+      "index" : "dell",
+      "id" : 0,
+      "version" : 32
+    } ]
+  }
+}

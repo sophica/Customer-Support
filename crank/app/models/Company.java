@@ -7,14 +7,20 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
+import play.data.validation.Required;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
+import play.modules.elasticsearch.annotations.ElasticSearchable;
 
+@ElasticSearchable
 @Entity
 public class Company extends Model{
+	
+	@Required
 	public String  name;
+	
 	public Blob    image;
-  public boolean hasImage;
+	public boolean hasImage;
 	
 	public int     rating;
 	public int     numRatings;  
