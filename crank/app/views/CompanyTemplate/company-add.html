@@ -1,0 +1,16 @@
+<script>
+    var addCompany = function() {
+        $.ajax({
+            type: "POST",
+            url:"/addCompany?companyName="+$("#nameInput").val(),
+            success: function(data) {
+            }
+        })
+    }
+</script>
+<div class="add-company-cell">
+
+<input id="nameInput" type="text" name="companyName"  size="100" ></input>
+<button onclick="addCompany()">Add Company</button>
+
+</div>

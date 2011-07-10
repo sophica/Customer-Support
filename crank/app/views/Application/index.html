@@ -4,65 +4,9 @@
 <div class="content">
 <div class="search-bar"></div>
 <div class="recent-bar">Recently Added:</div>
+#{include 'CompanyTemplate/company-add.html' /}
 
-<div class="company-display">
-%{
-	for(company in companies) {
-}%
-
-<table>
-<tr>
-	<td>
-%{
-	if (!company.hasImage) {
-}%
-#{form @Logo.uploadPicture(), enctype:'multipart/form-data'}
-	<input type="hidden" name="companyId" value="${company.id}">
-    <input type="file" name="image" />
-    <input type="submit" name="submit" value="Save" />
-#{/form}
-%{
-	} else {
-}%
-	<img class="logo" src="@{Logo.getPicture(company.id)}" />
-%{
-	}
-}%
-	</td>
-	<td>
-		${company.name}
-	</td>
-	<td>
-	<div class="company-overview-cell">
-		<div id="example-${company.id}"></div> <br /> 
-	    Your Rating: <span id="example-rating-${company.id}">not set</span> 
-	    <br /><br /> 
-	    <div class="company-overview-num-ratings">Number of Votes: ${company.numRatings}</div>
-	</div>
-	</td>
-</tr>
-</td>
-<script type="text/javascript">
-    var currRating = Math.floor(${company.rating}/10)
-	$('#example-${company.id}').ratings(10, currRating).bind('ratingchanged', function(event, data) {
-		$('#example-rating-${company.id}').text(data.rating);
-	            
-		var cId=${company.id};
-		var newRating = data.rating*10;
-	    $.ajax({
-	        type: "POST",
-	        url:"/saveRating?cId="+cId+"&rating="+newRating,
-	        success: function(data) {
-            }
-        })
-	});
-</script>
-%{
-	}
-}%
-</table>
-</div>
-</div>
+#{include 'CompanyTemplate/company-list.html' /}
 
 <section id="content" class="body">
 
