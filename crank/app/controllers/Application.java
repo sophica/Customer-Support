@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.db.jpa.Blob;
 import play.mvc.*;
 
 import java.util.*;
@@ -10,10 +11,25 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-    	List<Company> companies = Company.find("order by lastUpdated desc").fetch(2);
+    	List<Company> companies = Company.find("order by lastUpdated desc").fetch(3);
     	
     	renderArgs.put("companies", companies);
         render();
+        
+    }
+    
+    public static void uploadPicture(long companyId, Blob image) {
+      System.out.println("uploading " +companyId);
+      Company company = Company.findById(companyId);
+      company.image = image;
+      company.hasImage = true;
+      company.save();
+      renderTemplate("Application/index.html");
+    }
+    
+    public static void getPicture(long companyId) {
+      Company company = Company.findById(companyId);
+      renderBinary(company.image.get());
     }
     
     public static void populateDatabase() {
