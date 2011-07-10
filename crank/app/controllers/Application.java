@@ -18,27 +18,6 @@ public class Application extends Controller {
         
     }
     
-    public static void uploadPicture(long companyId, Blob image) {
-      System.out.println("uploading " +companyId);
-      Company company = Company.findById(companyId);
-      company.image = image;
-      company.hasImage = true;
-      company.save();
-      renderTemplate("Application/index.html");
-    }
-    
-    public static void saveRating(long cId, int rating) {
-      Company company = Company.findById(cId);
-      company.satisfaction = rating;
-      company.save();
-      renderTemplate("Application/index.html");
-    }
-    
-    public static void getPicture(long companyId) {
-      Company company = Company.findById(companyId);
-      renderBinary(company.image.get());
-    }
-    
     public static void populateDatabase() {
     	Company.deleteAll();
     	

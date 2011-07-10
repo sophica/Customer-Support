@@ -16,7 +16,7 @@
 %{
 	if (!company.hasImage) {
 }%
-#{form @Application.uploadPicture(), enctype:'multipart/form-data'}
+#{form @Logo.uploadPicture(), enctype:'multipart/form-data'}
 	<input type="hidden" name="companyId" value="${company.id}">
     <input type="file" name="image" />
     <input type="submit" name="submit" value="Save" />
@@ -24,7 +24,7 @@
 %{
 	} else {
 }%
-	<img class="logo" src="@{Application.getPicture(company.id)}" />
+	<img class="logo" src="@{Logo.getPicture(company.id)}" />
 %{
 	}
 }%
@@ -46,7 +46,6 @@
 	    var cId=${company.id};
         $.ajax({
         	type: "POST",
-        	blah: "hiblah",
         	url:"/saveRating?cId="+cId+"&rating="+data.rating,
         	success: function(data) {
         	}
